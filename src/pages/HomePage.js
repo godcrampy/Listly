@@ -29,7 +29,7 @@ class HomePage extends React.Component {
 			db.collection("users")
 				.doc(this.props.user.uid)
 				.update({
-					lists: [...this.props.lists].filter((_, id) => id != index)
+					lists: [...this.props.lists].filter((_, id) => id !== index)
 				});
 		};
 	};
@@ -46,6 +46,7 @@ class HomePage extends React.Component {
 							title={item.name}
 							items={item.items}
 							delete={this.handleDelete(index)}
+							history={this.props.history}
 						/>
 					))}
 				</div>

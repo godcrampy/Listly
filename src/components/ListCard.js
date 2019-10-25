@@ -50,7 +50,20 @@ class ListCard extends React.Component {
 							</Button>
 						</Modal.Actions>
 					</Modal>
-					<Button floated="right" icon="pencil" basic color="green" />
+					<Button
+						floated="right"
+						icon="pencil"
+						onClick={() => {
+							this.props.history.push({
+								pathname: "/edit",
+								index: this.props.id,
+								name: this.props.title,
+								items: this.props.items
+							});
+						}}
+						basic
+						color="green"
+					/>
 				</Card.Content>
 			</Card>
 		);
