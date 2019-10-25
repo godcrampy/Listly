@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import LandingPage from './pages/LandingPage'
-import HomePage from './pages/HomePage'
+import LandingPage from './pages/LandingPage';
+import HomePage from './pages/HomePage';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
         </Route>
       </Switch>
     </Router>
-  )
-}
+  );
+};
 
 export default App;
