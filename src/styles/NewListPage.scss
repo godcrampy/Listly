@@ -1,0 +1,20 @@
+#NewListPage {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80%;
+
+    >* {
+      margin: 5px;
+      width: 100%;
+    }
+
+    .btn-grp {
+      width: 30%;
+      margin: 5px;
+      align-self: flex-end;
+    }
+  }
+}

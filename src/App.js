@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { MemoryRouter as Router, Route, Switch } from "react-router-dom";
 
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage";
+import NewListPage from "./pages/NewListPage";
 import "./styles/App.scss";
 
 const App = () => {
@@ -12,6 +13,7 @@ const App = () => {
 				<Switch>
 					<Route exact path="/" component={LandingPage} />
 					<Route path="/home" component={HomePage} />
+					<Route path="/new" component={NewListPage} />
 				</Switch>
 			</Router>
 		</div>

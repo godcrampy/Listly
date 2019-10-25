@@ -27,7 +27,8 @@ class LandingPage extends React.Component {
 				this.props.changeIsUserSignedIn(true);
 				db.collection("users")
 					.doc(user.uid)
-					.set({
+					.update({
+						uid: user.uid,
 						name: user.displayName,
 						email: user.email,
 						photoURL: user.photoURL
