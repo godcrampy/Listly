@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+#App {
+  margin: 0;
+  padding: 2em 25%;
+
+  @media screen and (max-width: 667px) {
+    padding: 2%;
+  }
+}

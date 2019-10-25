@@ -8,6 +8,7 @@ import App from './App';
 import 'semantic-ui-css/semantic.min.css';
 import firebaseConfig from './config/firebase.config';
 import reducers from './reducers';
+import './styles/global.scss'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(reducers, composeEnhancers());

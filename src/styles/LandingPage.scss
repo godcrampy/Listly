@@ -1,0 +1,39 @@
+$text-color: #363636;
+$subtitle-color: #787878;
+
+#LandingPage {
+  padding-top: 2em;
+
+  @media screen and (max-width:667px) {
+    padding-top: 5em;
+  }
+
+  h1 {
+    color: $text-color;
+    font-size: 5em;
+    font-family: 'Merriweather', serif;
+  }
+
+  img {
+    width: 1em;
+  }
+
+  p {
+    font-size: 2em;
+    margin-bottom: 0px;
+    color: $subtitle-color;
+  }
+
+  #center {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buttons {
+    margin-top: 2em;
+  }
+}
