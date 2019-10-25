@@ -5,7 +5,6 @@ import "firebase/auth";
 import "firebase/firestore";
 import { connect } from "react-redux";
 import Typical from "react-typical";
-import { useHistory } from "react-router-dom";
 
 import { changeIsUserSignedIn, setUser } from "../actions";
 import AuthButtons from "../components/AuthButton";
