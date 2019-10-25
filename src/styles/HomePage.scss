@@ -1,0 +1,10 @@
+#HomePage {
+  .list-view {
+    margin-top: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: baseline;
+  }
+}

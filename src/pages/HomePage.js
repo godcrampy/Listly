@@ -5,6 +5,8 @@ import "firebase/firestore";
 import { Button } from "semantic-ui-react";
 
 import { fetchLists } from "../actions";
+import ListCard from "../components/ListCard";
+import "../styles/HomePage.scss";
 
 class HomePage extends React.Component {
 	componentDidMount() {
@@ -14,9 +16,7 @@ class HomePage extends React.Component {
 			.doc(this.props.user.uid)
 			.get()
 			.then(doc => {
-				console.log(doc.data());
 				this.props.fetchLists(doc.data().lists || []);
-				console.log(doc.data());
 			});
 	}
 	newListRoute = () => {
@@ -24,9 +24,14 @@ class HomePage extends React.Component {
 	};
 	render() {
 		return (
-			<div>
+			<div id="HomePage">
 				Home
 				<Button circular icon="add" onClick={this.newListRoute} />
+				<div className="list-view">
+					{this.props.lists.map((item, index) => (
+						<ListCard key={index} title={item.name} items={item.items} />
+					))}
+				</div>
 			</div>
 		);
 	}
@@ -35,7 +40,8 @@ class HomePage extends React.Component {
 const mapStateToProps = state => {
 	return {
 		user: state.user,
-		isUserSignedIn: state.isUserSignedIn
+		isUserSignedIn: state.isUserSignedIn,
+		lists: state.allLists
 	};
 };
 
