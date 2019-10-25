@@ -71,9 +71,6 @@ class EditListPage extends React.Component {
 						<p>List Names cannot be empty</p>
 					</Message>
 				</Form>
-				<Button onClick={() => console.log([...this.props.allLists])}>
-					Test
-				</Button>
 			</div>
 		);
 	}

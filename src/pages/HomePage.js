@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
-import { Button } from "semantic-ui-react";
+import { Button, Image } from "semantic-ui-react";
 
 import { fetchLists, deleteList } from "../actions";
 import ListCard from "../components/ListCard";
@@ -36,8 +36,15 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<div id="HomePage">
-				Home
-				<Button circular icon="add" onClick={this.newListRoute} />
+				<Image rounded avatar src={this.props.user.photoURL} />
+				<Button size="mini" circular icon="add" onClick={this.newListRoute} />
+				<Button
+					size="mini"
+					circular
+					icon="close"
+					onClick={() => this.props.history.push("/")}
+				/>
+				<h1>All Lists</h1>
 				<div className="list-view">
 					{this.props.lists.map((item, index) => (
 						<ListCard
