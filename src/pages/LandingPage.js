@@ -5,6 +5,7 @@ import "firebase/auth";
 import "firebase/firestore";
 import { connect } from "react-redux";
 import Typical from "react-typical";
+import { useHistory } from "react-router-dom";
 
 import { changeIsUserSignedIn, setUser } from "../actions";
 import AuthButtons from "../components/AuthButton";
@@ -32,6 +33,7 @@ class LandingPage extends React.Component {
 						email: user.email,
 						photoURL: user.photoURL
 					});
+				this.props.history.push("/home");
 				// ...
 			});
 	};
