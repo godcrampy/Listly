@@ -27,3 +27,10 @@ export const fetchLists = lists => {
 		payload: lists
 	};
 };
+
+export const deleteList = index => {
+	return {
+		type: actions.DELETE_LIST,
+		payload: index
+	};
+};

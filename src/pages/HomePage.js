@@ -4,7 +4,7 @@ import * as firebase from "firebase/app";
 import "firebase/firestore";
 import { Button } from "semantic-ui-react";
 
-import { fetchLists } from "../actions";
+import { fetchLists, deleteList } from "../actions";
 import ListCard from "../components/ListCard";
 import "../styles/HomePage.scss";
 
@@ -22,6 +22,17 @@ class HomePage extends React.Component {
 	newListRoute = () => {
 		this.props.history.push("/new");
 	};
+	handleDelete = index => {
+		return () => {
+			this.props.deleteList(index);
+			const db = firebase.firestore();
+			db.collection("users")
+				.doc(this.props.user.uid)
+				.update({
+					lists: [...this.props.lists].filter((_, id) => id != index)
+				});
+		};
+	};
 	render() {
 		return (
 			<div id="HomePage">
@@ -29,7 +40,13 @@ class HomePage extends React.Component {
 				<Button circular icon="add" onClick={this.newListRoute} />
 				<div className="list-view">
 					{this.props.lists.map((item, index) => (
-						<ListCard key={index} title={item.name} items={item.items} />
+						<ListCard
+							key={index}
+							id={index}
+							title={item.name}
+							items={item.items}
+							delete={this.handleDelete(index)}
+						/>
 					))}
 				</div>
 			</div>
@@ -47,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ fetchLists }
+	{ fetchLists, deleteList }
 )(HomePage);

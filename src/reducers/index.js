@@ -26,6 +26,8 @@ const allListsReducer = (state = [], action) => {
 			return [...state, action.payload];
 		case actions.FETCH_LISTS:
 			return action.payload;
+		case actions.DELETE_LIST:
+			return [...state].filter((_, index) => index != action.payload);
 		default:
 			return state;
 	}
