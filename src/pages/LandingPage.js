@@ -43,6 +43,15 @@ class LandingPage extends React.Component {
 				<h1>
 					<Icon name="list ul" />
 					Listly
+					<a href="https://github.com/godcrampy/listly">
+						<Icon
+							color="blue"
+							className="github-button"
+							size="mini"
+							content="Fork"
+							name="github"
+						/>
+					</a>
 				</h1>
 				<div id="center">
 					<p className="subtitle">All your lists in one place.</p>
