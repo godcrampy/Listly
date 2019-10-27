@@ -11,6 +11,32 @@ import AuthButtons from "../components/AuthButton";
 import "../styles/LandingPage.scss";
 
 class LandingPage extends React.Component {
+	handleSignUp = () => {
+		const provider = new firebase.auth.GoogleAuthProvider();
+		const db = firebase.firestore();
+		provider.addScope("profile");
+		firebase
+			.auth()
+			.signInWithPopup(provider)
+			.then(result => {
+				// This gives you a Google Access Token. You can use it to access the Google API.
+				// var token = result.credential.accessToken;
+				// The signed-in user info.
+				const user = result.user;
+				this.props.setUser(user);
+				this.props.changeIsUserSignedIn(true);
+				db.collection("users")
+					.doc(user.uid)
+					.set({
+						uid: user.uid,
+						name: user.displayName,
+						email: user.email,
+						photoURL: user.photoURL
+					});
+				this.props.history.push("/home");
+				// ...
+			});
+	};
 	handleSignIn = () => {
 		const provider = new firebase.auth.GoogleAuthProvider();
 		const db = firebase.firestore();
@@ -57,7 +83,10 @@ class LandingPage extends React.Component {
 					<p className="subtitle">All your lists in one place.</p>
 					<Typical steps={list} loop={Infinity} wrapper="p" />
 					<div className="buttons">
-						<AuthButtons handleSignIn={this.handleSignIn} />
+						<AuthButtons
+							handleSignIn={this.handleSignIn}
+							handleSignUp={this.handleSignUp}
+						/>
 					</div>
 				</div>
 			</div>

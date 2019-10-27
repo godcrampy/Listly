@@ -16,7 +16,8 @@ class HomePage extends React.Component {
 			.doc(this.props.user.uid)
 			.get()
 			.then(doc => {
-				this.props.fetchLists(doc.data().lists || []);
+				if (doc.data() === undefined) this.props.fetchLists([]);
+				else this.props.fetchLists(doc.data().lists || []);
 			});
 	}
 	newListRoute = () => {

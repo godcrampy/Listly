@@ -4,7 +4,7 @@ import { Button, Icon } from "semantic-ui-react";
 const AuthButton = props => {
 	return (
 		<Button.Group className="buttons">
-			<Button color="google plus" onClick={props.handleSignIn}>
+			<Button color="google plus" onClick={props.handleSignUp}>
 				<Icon name="google" />
 				Join
 			</Button>
