@@ -5,7 +5,7 @@
   "dependencies": {
     "eslint": "^6.5.1",
     "firebase": "^7.2.2",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.1",
